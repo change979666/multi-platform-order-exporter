@@ -1,0 +1,66 @@
+{
+  "manifest_version": 3,
+  "name": "Lazada/Shopee/TikTok 订单提取助手",
+  "version": "1.3.4",
+  "description": "一键提取Lazada、Shopee(虾皮)、TikTok Shop三大东南亚电商平台的订单信息，自动导出为标准Excel格式",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.lazada.co.th/*",
+        "*://*.lazada.sg/*",
+        "*://*.lazada.com.my/*",
+        "*://*.lazada.vn/*",
+        "*://*.lazada.com.ph/*",
+        "*://*.shopee.co.th/*",
+        "*://*.shopee.sg/*",
+        "*://*.shopee.com.my/*",
+        "*://*.shopee.vn/*",
+        "*://*.shopee.ph/*",
+        "*://*.tiktok.com/*",
+        "*://seller.tiktok.com/*",
+        "*://seller-th.tiktok.com/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "permissions": [
+    "activeTab",
+    "storage",
+    "tabs",
+    "downloads"
+  ],
+  "host_permissions": [
+    "*://*.lazada.co.th/*",
+    "*://*.lazada.sg/*",
+    "*://*.lazada.com.my/*",
+    "*://*.lazada.vn/*",
+    "*://*.lazada.com.ph/*",
+    "*://*.shopee.co.th/*",
+    "*://*.shopee.sg/*",
+    "*://*.shopee.com.my/*",
+    "*://*.shopee.vn/*",
+    "*://*.shopee.ph/*",
+    "*://*.tiktok.com/*",
+    "*://seller.tiktok.com/*",
+    "*://seller-th.tiktok.com/*"
+  ]
+}

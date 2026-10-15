@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>订单提取助手</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-content">
+        <div class="logo-wrapper">
+          <img src="icons/icon48.png" alt="logo" class="logo">
+        </div>
+        <div class="header-text">
+          <h1>订单提取助手</h1>
+          <p class="subtitle">东南亚三平台统一提取</p>
+        </div>
+      </div>
+    </header>
+    
+    <main>
+      <div class="platform-selector">
+        <h3>🌏 选择平台</h3>
+        <div class="platform-grid">
+          <button class="platform-card" data-platform="lazada">
+            <div class="platform-icon-wrapper lazada-bg">
+              <span class="platform-emoji">🛍️</span>
+            </div>
+            <div class="platform-name">Lazada</div>
+            <div class="platform-badge">泰国</div>
+          </button>
+          
+          <button class="platform-card" data-platform="shopee">
+            <div class="platform-icon-wrapper shopee-bg">
+              <span class="platform-emoji">🛒</span>
+            </div>
+            <div class="platform-name">Shopee</div>
+            <div class="platform-badge">虾皮</div>
+          </button>
+          
+          <button class="platform-card" data-platform="tiktok">
+            <div class="platform-icon-wrapper tiktok-bg">
+              <span class="platform-emoji">🎵</span>
+            </div>
+            <div class="platform-name">TikTok Shop</div>
+            <div class="platform-badge">抖音</div>
+          </button>
+        </div>
+      </div>
+      
+      <div class="action-section">
+        <button id="extractBtn" class="btn btn-primary" disabled>
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          <span>提取订单数据</span>
+        </button>
+        
+        <button id="exportBtn" class="btn btn-success" disabled>
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="12" y1="18" x2="12" y2="12"></line>
+            <line x1="9" y1="15" x2="15" y2="15"></line>
+          </svg>
+          <span>导出 Excel</span>
+        </button>
+      </div>
+      
+      <div class="info-cards">
+        <div class="info-card">
+          <div class="info-icon">📊</div>
+          <div class="info-content">
+            <div class="info-label">已提取订单</div>
+            <div class="info-value" id="orderCount">0</div>
+          </div>
+        </div>
+        
+        <div class="info-card">
+          <div class="info-icon">📦</div>
+          <div class="info-content">
+            <div class="info-label">商品总数</div>
+            <div class="info-value" id="itemCount">0</div>
+          </div>
+        </div>
+        
+        <div class="info-card">
+          <div class="info-icon">💰</div>
+          <div class="info-content">
+            <div class="info-label">订单总额</div>
+            <div class="info-value" id="totalAmount">฿0.00</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="status-box">
+        <div class="status-indicator"></div>
+        <div id="statusMessage" class="status-text">请选择平台并打开订单页面</div>
+      </div>
+      
+      
+    </main>
+    
+    
+  </div>
+  
+  <script src="xlsx.full.min.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
