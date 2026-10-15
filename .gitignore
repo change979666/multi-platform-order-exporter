@@ -1,0 +1,14 @@
+# 编辑器 / 系统
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# 调试与临时输出
+*.log
+*.tmp
+debug_out/
+
+# Node（本扩展无构建流程，仅在本地调试时可能出现）
+node_modules/
+npm-debug.log*

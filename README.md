@@ -2,7 +2,7 @@
 
 一个专为东南亚电商卖家打造的强大浏览器扩展插件，可以快速提取 **Lazada**、**Shopee(虾皮)**、**TikTok Shop** 三大平台的订单信息，并自动导出为标准 Excel 格式。
 
-![Version](https://img.shields.io/badge/version-1.0.0-blue)
+![Version](https://img.shields.io/badge/version-1.3.4-blue)
 ![Platform](https://img.shields.io/badge/platform-Lazada%20%7C%20Shopee%20%7C%20TikTok-orange)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
@@ -15,7 +15,7 @@
 
 ### 🚀 核心功能
 - 📊 **一键提取**: 快速提取当前页面的所有订单信息
-- 💾 **Excel 导出**: 将订单数据导出为标准 CSV 格式，兼容 Excel
+- 💾 **Excel 导出**: 将订单数据导出为标准 `.xlsx`（Excel）文件，兼容 Excel / WPS
 - 🎨 **现代化 UI**: 渐变设计，操作简单直观，支持暗色主题
 - 📈 **实时统计**: 自动统计订单数量、商品总数、订单总额
 - 💾 **自动保存**: 提取的数据自动保存，关闭插件后不会丢失
@@ -33,7 +33,7 @@
 
 1. **下载插件**
    ```bash
-   git clone https://github.com/yourusername/order-extractor.git
+   git clone https://github.com/change979666/multi-platform-order-exporter.git
    ```
    或直接下载 ZIP 压缩包并解压
 
@@ -87,24 +87,16 @@
 ## 📁 项目结构
 
 ```
-订单提取插件/
-├── manifest.json          # 插件配置文件 (Manifest V3)
-├── popup.html            # 弹窗页面 (现代化UI)
-├── popup.css             # 弹窗样式 (渐变设计)
-├── popup.js              # 弹窗逻辑 (交互处理)
-├── content.js            # 内容脚本 (数据提取核心)
-├── background.js         # 后台服务 (消息处理)
-├── generate_icons.py     # 图标生成脚本
-├── icons/                # 图标文件夹
-│   ├── icon16.png
-│   ├── icon32.png
-│   ├── icon48.png
-│   └── icon128.png
-├── Lazada.txt           # Lazada 订单示例数据
-├── 虾皮.txt              # Shopee 订单示例数据
-├── TK.txt               # TikTok 订单示例数据
-├── 项目介绍.md           # 详细技术文档
-└── README.md            # 本文件
+multi-platform-order-exporter/
+├── manifest.json          # 扩展配置文件 (Manifest V3)
+├── background.js          # 后台 Service Worker（平台检测 / 右键菜单）
+├── content.js             # 内容脚本（三平台订单数据提取核心）
+├── popup.html / popup.css / popup.js   # 弹窗 UI 与导出逻辑
+├── xlsx.full.min.js       # 第三方 SheetJS 库（Apache-2.0，见 THIRD-PARTY-NOTICES.md）
+├── icons/                 # 扩展图标（16/32/48/128）
+├── md/                    # 中文技术文档（导出格式、订单展开、平台兼容等）
+├── *.md                   # 根目录其他中文说明文档
+└── README.md              # 本文件
 ```
 
 ## 📝 导出数据格式
@@ -272,9 +264,13 @@ python generate_icons.py
 
 如果遇到问题或有功能建议，请在 GitHub 上提交 Issue。
 
-## 📄 许可证
+## 📄 许可证 / License & Attribution
 
-MIT License - 自由使用、修改和分发
+本项目的**原创代码**采用 **MIT License**，版权行：`Copyright (c) 2026 change979666 — Original source: https://github.com/change979666/multi-platform-order-exporter`。再分发时请保留版权与许可文本。
+
+**第三方依赖**：根目录的 `xlsx.full.min.js` 是 **SheetJS Community Edition**（© 2013-present SheetJS，http://sheetjs.com），按 **Apache License 2.0** 发布。它**不随本项目的 MIT 协议重新授权**，本仓库仅原样打包使用并保留其头部版权声明。详见 [THIRD-PARTY-NOTICES.md](./THIRD-PARTY-NOTICES.md)。
+
+> 说明：本扩展仅在用户已登录对应卖家中心的本地浏览器中读取订单页面，所有数据均保存在浏览器本地，不上传任何服务器。Lazada / Shopee / TikTok 的商标与页面版权归各平台所有；平台页面结构可能随时调整，选择器失效属预期情况，不承诺永久可用。
 
 ## 🎉 更新日志
 
